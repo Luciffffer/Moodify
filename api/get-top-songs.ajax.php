@@ -9,7 +9,7 @@ try {
 
     if (isset($_SESSION['access_token'])) {
         
-        $limit = 40;
+        $limit = 100;
         $page = 1;
 
         if (isset($_GET['page'])) {
@@ -72,7 +72,7 @@ try {
         foreach($data['audio_features'] as $index => $track) {
             if ($track['valence'] > 0.5 && $track['mode'] == 1) {
                 array_push($happyTracks, $tracks[$index]['uri']);
-            } else if ($track['valence'] < 0.5 && $track['mode'] == 0) {
+            } else if ($track['valence'] < 0.5 && $track['mode'] == 0 && $track['energy'] < 0.6) {
                 array_push($sadTracks, $tracks[$index]['uri']);
             } 
             

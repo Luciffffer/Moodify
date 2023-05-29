@@ -84,11 +84,13 @@ video.addEventListener('play', () => {
 
         if (newEmotion == emotion) return;
 
+        console.log('new: ' + newEmotion, 'prev: ' + previousNewEmotion, 'emo: ' + emotion);    
+
         if (newEmotion != previousNewEmotion) {
             let timer;
             if (timer) clearTimeout(timer);
 
-            timer = setTimeout(() => {
+            timer = await setTimeout(() => {
                 emotion = newEmotion;
                 console.log(emotion);
                 

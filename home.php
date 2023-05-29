@@ -22,6 +22,6 @@ if (!isset($_SESSION['access_token'])) {
 <body data-token="<?php echo $_SESSION['access_token']; ?>">
     <a id="logout-btn" href="api/logout.php">Log out</a>
     <h1>Welcome to <span class="green-text">Moodify</span></h1>
-    <video id="webcam" width="400px" width="400px" muted autoplay></video>
+    <video style="visibility: hidden;" id="webcam" width="400px" width="400px" muted autoplay></video>
 </body>
 </html>
