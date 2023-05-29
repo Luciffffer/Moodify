@@ -27,6 +27,7 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Moodify</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon">
 </head>
 <body>
     <div id="login-top-text">

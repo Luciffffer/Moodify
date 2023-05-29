@@ -70,14 +70,14 @@ try {
         $angryTracks = [];
 
         foreach($data['audio_features'] as $index => $track) {
-            if ($track['valence'] > 0.5) {
-                array_push($happyTracks, $tracks[$index]);
-            } else if ($track['valence'] < 0.5) {
-                array_push($sadTracks, $tracks[$index]);
+            if ($track['valence'] > 0.5 && $track['mode'] == 1) {
+                array_push($happyTracks, $tracks[$index]['uri']);
+            } else if ($track['valence'] < 0.5 && $track['mode'] == 0) {
+                array_push($sadTracks, $tracks[$index]['uri']);
             } 
             
             if ($track['energy'] > 0.7 && $track['valence'] < 0.6) {
-                array_push($angryTracks, $tracks[$index]);
+                array_push($angryTracks, $tracks[$index]['uri']);
             }
         }
 
