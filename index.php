@@ -30,7 +30,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
     <div id="login-top-text">
-        <h1>Moodify</h1>
+        <img class="logo" src="assets/images/moodify.svg" alt="Moodify logo">
         <p>A platform that plays songs depending on how you are feeling</p>
     </div>
     <form action="" method="POST">
