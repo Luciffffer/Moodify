@@ -1,15 +1,19 @@
-document.querySelector('#playpause').addEventListener('click', e => {
-    e.preventDefault();
-    const token = document.body.dataset.token;
-    
-    myHeaders = new Headers();
-    myHeaders.append('Authorization', 'Bearer ' + token);
-    myHeaders.append('Content-Type', 'application/json');
+let happyTracks = [];
+let sadTracks = [];
+let angryTracks = [];
 
-    fetch('https://api.spotify.com/v1/me/player/play', {
-        method: 'PUT',
-        headers: myHeaders,
-    })
+window.addEventListener('load', () => {
+    fetch('api/get-top-songs.ajax.php')
+        .then(response => response.json())
+        .then(json => {
+            if (json.status = 'error') {
+                throw json.message;
+            }
+
+            happyTracks = json.tracks.happy;
+            sadTracks = json.tracks.sad;
+            angryTracks = json.tracks.angry;
+        })
         .catch(error => {
             console.error(error);
         });

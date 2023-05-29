@@ -6,6 +6,7 @@ session_start();
 
 if (isset($_GET['code']) && !empty($_GET['code'])) {
 
+    // send request to spotify api to get access token
     $curl = curl_init();
 
     curl_setopt_array($curl, [

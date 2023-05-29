@@ -10,8 +10,9 @@ if (isset($_SESSION['access_token'])) {
 }
 
 if (isset($_POST['login'])) {
-    $redirectUri = "http://localhost/moodify/api/callback.php";
-    $scopes = "user-library-read streaming user-modify-playback-state user-read-playback-state user-top-read";
+    // if login button is pressed we want to redirect to the spotify login page
+    $redirectUri = "http://localhost/moodify/api/callback.php"; // login page will redirect to the callback page
+    $scopes = "user-library-read streaming user-modify-playback-state user-read-playback-state user-top-read"; // permissions we want from the user
 
     $auth_url = 'https://accounts.spotify.com/authorize?response_type=code&client_id=' . CLIENT_ID . '&scope=' . urlencode($scopes) . '&redirect_uri=' . urlencode($redirectUri); 
     header('Location: ' . $auth_url);
