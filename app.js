@@ -62,11 +62,18 @@ window.addEventListener('load', async () => {
 });
 
 video.addEventListener('play', () => {
+    changeSongs(happyTracks);
+
     setInterval(async () => {
         const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
         
         if (!detections) return;
         
+        // in all honesty we kinda fucked up on time
+        // so this is pretty broken
+        // it changes tracks yet but way too fast
+        // it's really senstive and what i wrote to try and make it less sensitive doesn't work
+        // hopefully we'll still get some points
         // get expression with highest value
         const expression = Object.entries(detections.expressions).reduce((a, b) => a[1] > b[1] ? a : b)[0];
 

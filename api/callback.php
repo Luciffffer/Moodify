@@ -33,5 +33,5 @@ if (isset($_GET['code']) && !empty($_GET['code'])) {
     header('Location: ../home.php');
 
 } else {
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
