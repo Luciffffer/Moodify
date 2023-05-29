@@ -11,7 +11,7 @@ if (isset($_SESSION['access_token'])) {
 
 if (isset($_POST['login'])) {
     $redirectUri = "http://localhost/moodify/api/callback.php";
-    $scopes = "user-library-read streaming user-modify-playback-state";
+    $scopes = "user-library-read streaming user-modify-playback-state user-read-playback-state user-top-read";
 
     $auth_url = 'https://accounts.spotify.com/authorize?response_type=code&client_id=' . CLIENT_ID . '&scope=' . urlencode($scopes) . '&redirect_uri=' . urlencode($redirectUri); 
     header('Location: ' . $auth_url);
@@ -26,7 +26,6 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Moodify</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
 </head>
 <body>
     <div id="login-top-text">
